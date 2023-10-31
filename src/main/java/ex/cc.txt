@@ -1,0 +1,40 @@
+    //  Добавить метод, который ищет сотрудника по стажу (может быть список)
+    public static void searchByExperience(List<EmployeeDirectory> empDir, int Experience) {
+
+        for (int i = 0; i < empDir.size(); i++) {
+            if (empDir.get(i).getExperience() == Experience) {
+                System.out.println(empDir.get(i).getName() +  ", стаж - " + empDir.get(i).getExperience());
+            }
+        }
+    }
+
+    //  Добавить метод, который выводит номер телефона сотрудника по имени (может быть список)
+    public static void searchByPhone(List<EmployeeDirectory> empDir, String name) {
+        for (int i = 0; i < empDir.size(); i++) {
+            if (empDir.get(i).getName() == name){
+                System.out.println("Номер телефона " + empDir.get(i).getName() +  " - "
+                        + empDir.get(i).getPhoneNumber());
+            }
+        }
+    }
+
+    //  Добавить метод, который ищет сотрудника по табельному номеру
+    public static void searchByPersonnelNumber(List<EmployeeDirectory> empDir, int personnelNumber) {
+        for (int i = 0; i < empDir.size(); i++) {
+            if (empDir.get(i).getPersonnelNumber() == personnelNumber) {
+                System.out.println("Табельный номер: " + empDir.get(i).getPersonnelNumber() +  " - "
+                        + empDir.get(i).getName());
+            }
+        }
+    }
+
+    //  Добавить метод добавление нового сотрудника в справочник
+    public static List<EmployeeDirectory> addPersonnal() {
+        List<EmployeeDirectory> list = new ArrayList<>();
+        list.add(new EmployeeDirectory(1, "+7985633452", "Константин", 6));
+        list.add(new EmployeeDirectory(3, "+7915633452", "Мария", 2));
+        list.add(new EmployeeDirectory(4, "+7935633452", "Вячеслав", 12));
+        list.add(new EmployeeDirectory(5, "+7125633452", "Кирелл", 3));
+        list.add(new EmployeeDirectory(6, "+7885633452", "Юлия", 1));
+        return list;
+    }
