@@ -1,45 +1,56 @@
 package ex;
 
-import java.util.List;
+import java.util.*;
 
-public class EmployeeDirectory {
-    private final int personnelNumber;
-    private final String phoneNumber;
-    private final String Name;
-    private final int Experience;
+public class EmployeeDirectory implements Employee {
 
+    List<Personal> personals = new LinkedList<>();
 
-    public EmployeeDirectory(int personnelNumber, String phoneNumber, String name, int experience) {
-            this.personnelNumber = personnelNumber;
-            this.phoneNumber = phoneNumber;
-            this.Name = name;
-            this.Experience = experience;
+    public EmployeeDirectory() {
     }
 
-    public int getPersonnelNumber() {
-        return personnelNumber;
+    //  Добавить метод, который ищет сотрудника по стажу (может быть список)
+    @Override
+    public void searchByExperience(int experience) {
+
+        for (Personal personal : personals) {
+            if (personal.getExperience() == experience) {
+                System.out.println(personal.getName() + ", стаж - " + personal.getExperience());
+            }
+        }
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    //  Добавить метод, который выводит номер телефона сотрудника по имени (может быть список)
+    @Override
+    public void searchByPhone(String name) {
+        for (Personal personal : personals) {
+            if (Objects.equals(personal.getName(), name)) {
+                System.out.println("Номер телефона " + personal.getName() + " - "
+                        + personal.getPhoneNumber());
+            }
+        }
     }
 
-    public String getName() {
-        return Name;
+    //  Добавить метод, который ищет сотрудника по табельному номеру
+    @Override
+    public void searchByPersonnelNumber(int personnelNumber) {
+        for (Personal personal : personals) {
+            if (personal.getPersonnelNumber() == personnelNumber) {
+                System.out.println("Табельный номер: " + personal.getPersonnelNumber() + " - "
+                        + personal.getName());
+            }
+        }
     }
 
-    public int getExperience() {
-        return Experience;
+    //  Добавить метод добавление нового сотрудника в справочник
+    @Override
+    public void addPersonnal(int personnelNumber, String phoneNumber, String name,
+                             int experience) {
+        personals.add(new Personal(personnelNumber, phoneNumber, name, experience));
     }
-
 
     @Override
     public String toString() {
-        return "EmployeeDirectory{" +
-                "personnelNumber = " + personnelNumber +
-                ", phoneNumber = " + phoneNumber +
-                ", Name = " + Name +
-                ", Experience = " + Experience +
-                '}';
+        return  "" + personals ;
     }
 }
