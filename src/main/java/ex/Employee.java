@@ -1,8 +1,9 @@
 package ex;
 
 public interface Employee {
-        void searchByExperience(int s);
+        void searchByExperience(int t);
         void searchByPhone(String name);
-        void searchByPersonnelNumber(int personnelNumber);
+        Personal searchByPersonnelNumber(int personnelNumber);
         void addPersonnal(int personnelNumber, String phoneNumber, String name, int experience);
+        String toStringEmp();
 }

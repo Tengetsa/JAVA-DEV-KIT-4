@@ -16,17 +16,17 @@ public class Main {
 
         EmployeeDirectory employeeDirectory = new EmployeeDirectory();
         employeeDirectory.addPersonnal(1, "+7985633452", "Константин", 6);
-        employeeDirectory.addPersonnal(3, "+7915633452", "Мария", 2);
-        employeeDirectory.addPersonnal(4, "+7935633452", "Вячеслав", 12);
-        employeeDirectory.addPersonnal(5, "+7125633452", "Кирелл", 3);
-        employeeDirectory.addPersonnal(6, "+7885633452", "Юлия", 1);
+        employeeDirectory.addPersonnal(2, "+7915633452", "Мария", 2);
+        employeeDirectory.addPersonnal(3, "+7935633452", "Вячеслав", 12);
+        employeeDirectory.addPersonnal(4, "+7125633452", "Кирелл", 3);
+        employeeDirectory.addPersonnal(5, "+7885633452", "Юлия", 1);
 
-        System.out.println(employeeDirectory);
+        String s = employeeDirectory.toStringEmp();
+        System.out.println(s);
         employeeDirectory.searchByExperience(3);
         employeeDirectory.searchByPhone("Юлия");
-        employeeDirectory.searchByPersonnelNumber(1);
+        Object o = employeeDirectory.searchByPersonnelNumber(1);
+        System.out.println(o);
 
     }
-
-
 }

@@ -30,7 +30,6 @@ public class Personal {
         return Experience;
     }
 
-
     @Override
     public String toString() {
         return '{' + "personnelNumber = " + personnelNumber +

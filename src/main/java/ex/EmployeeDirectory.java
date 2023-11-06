@@ -1,6 +1,7 @@
 package ex;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class EmployeeDirectory implements Employee {
 
@@ -12,9 +13,9 @@ public class EmployeeDirectory implements Employee {
     //  Добавить метод, который ищет сотрудника по стажу (может быть список)
     @Override
     public void searchByExperience(int experience) {
-
         for (Personal personal : personals) {
-            if (personal.getExperience() == experience) {
+            if (Objects.equals(personal.getExperience(), experience)){
+//            if (personal.getExperience() == experience) {
                 System.out.println(personal.getName() + ", стаж - " + personal.getExperience());
             }
         }
@@ -33,24 +34,25 @@ public class EmployeeDirectory implements Employee {
 
     //  Добавить метод, который ищет сотрудника по табельному номеру
     @Override
-    public void searchByPersonnelNumber(int personnelNumber) {
+    public Personal searchByPersonnelNumber(int personnelNumber) {
         for (Personal personal : personals) {
             if (personal.getPersonnelNumber() == personnelNumber) {
                 System.out.println("Табельный номер: " + personal.getPersonnelNumber() + " - "
                         + personal.getName());
+                return personal;
             }
         }
+        return null;
     }
 
     //  Добавить метод добавление нового сотрудника в справочник
     @Override
-    public void addPersonnal(int personnelNumber, String phoneNumber, String name,
-                             int experience) {
+    public void addPersonnal(int personnelNumber, String phoneNumber, String name, int experience) {
         personals.add(new Personal(personnelNumber, phoneNumber, name, experience));
     }
 
     @Override
-    public String toString() {
-        return  "" + personals ;
+    public  String toStringEmp() {
+        return  "" + personals;
     }
 }
