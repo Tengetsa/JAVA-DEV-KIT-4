@@ -5,9 +5,10 @@ import java.util.stream.Collectors;
 
 public class EmployeeDirectory implements Employee {
 
-    List<Personal> personals = new LinkedList<>();
+    List<Personal> personals;
 
     public EmployeeDirectory() {
+        personals = new LinkedList<>();
     }
 
     //  Добавить метод, который ищет сотрудника по стажу (может быть список)
